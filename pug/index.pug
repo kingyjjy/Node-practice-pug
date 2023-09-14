@@ -1,0 +1,42 @@
+
+
+extends layout
+
+block content
+        - const node = 'Node.js'
+        - const js = 'Javascript'
+        - let isLoggedIn = false;
+        - const fruits = '사과';
+            div
+                h1  Welcome to express 
+                p 
+                    | 안녕하세요? 퍼그입니다
+                    | 여러 줄을 입력해 봅니다.
+                    | 태그로 넣을수도있습니다.
+                    br
+                    | 태그를 넣지 않을 수도 있습니다.
+                    | 이상 입니다. 
+
+                p= content 
+                p #{node}는 #{js}로 만들었습니다.
+                button(type="submit") 전송
+
+                ul 
+                    each fruit , index in ['사과','배','오렌지','복숭아','바나나','키위']
+                        li= (index + 1) + '번째 ' + fruit
+            
+                if isLoggedIn 
+                    div 로그인 되었습니다 
+                else 
+                    div 로그인이 필요합니다
+
+                case fruits 
+                    when '배'
+                        p 배입니다
+                    when '바나나'
+                        p 바나나입니다
+                    default 
+                        p 배도아니고 바나나도 아니면 사과?!
+
+
+        
